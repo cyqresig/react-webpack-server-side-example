@@ -1,6 +1,7 @@
 exports.collect = function(fn) {
 	var stuff = [];
 	function add(css) {
+		console.log('css = ', css);
 		stuff.push(css);
 	}
 	var old = exports.add;

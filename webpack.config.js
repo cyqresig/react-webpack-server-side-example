@@ -12,10 +12,13 @@ module.exports = [
 	{
 		// The configuration for the client
 		name: "browser",
-		entry: "./app/entry.js",
+		entry: {
+			entry: ["./app/entry.js"],
+			entry2: ["./app/entry2.js"],
+        },
 		output: {
 			path: assetsPath,
-			filename: "[hash].js",
+			filename: "[name].js",
 			publicPath: publicPath
 		},
 		module: {
@@ -34,11 +37,14 @@ module.exports = [
 	{
 		// The configuration for the server-side rendering
 		name: "server-side rendering",
-		entry: "./server/page.js",
+		entry: {
+            page: ["./server/page.js"],
+            page2: ["./server/page2.js"],
+        },
 		target: "node",
 		output: {
 			path: assetsPath,
-			filename: "../../server/page.generated.js",
+			filename: "../../server/[name].generated.js",
 			publicPath: publicPath,
 			libraryTarget: "commonjs2"
 		},
